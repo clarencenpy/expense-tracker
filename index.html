@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense Tracker</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper teal">
+                <a class="brand-logo center">Expense Tracker</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row app-area">
+
+        <!-- leftpanel -->
+        <div class="col s12 m4 teal lighten-5 scroll-panel">
+            <a id="add-expense-btn" class="waves-effect waves-light btn-large"><i class="material-icons right">add</i>Add Expense</a>
+
+            <div id="expense-list">
+                <!-- inject html here -->
+
+                <!-- handlebars template (will not be rendered on the page) -->
+                <script id="expense-list-template" type="text/x-handlebars-template">
+                    {{#each this}}
+                    <div class="card-panel hoverable">
+                        <span><strong>{{desc}}</strong><small> - {{category}}</small></span>
+                        <span class="right">${{price}}</span>
+                    </div>
+                    {{else}}
+                    <blockquote>You have not added any expenses!</blockquote>
+                    {{/each}}
+                </script>
+            </div>
+
+        </div>
+
+
+        <!-- rightpanel -->
+        <div class="col s12 m8 scroll-panel">
+            <div class="card-panel hoverable">
+                <h5>Spending Budget <i id="edit-budget-btn" class="material-icons">edit</i></h5>
+                <!-- inject jqmeter here -->
+                <div id="jqmeter"></div>
+            </div>
+            <div class="card-panel hoverable">
+                <h5>Expenses Breakdown</h5>
+                <canvas id="category-chart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modals -->
+
+    <!-- add expense modal -->
+    <div id="add-expense-modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Add Expense</h4>
+            <!-- form -->
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">info</i>
+                            <input id="desc" type="text">
+                            <label for="icon_prefix">Description</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">attach_money</i>
+                            <input id="price" type="number">
+                            <label for="icon_telephone">Price</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <select id="category">
+                            <option value="" disabled selected>Choose your category</option>
+                            <option value="food">Food</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="transport">Transport</option>
+                            <option value="education">Education</option>
+                        </select>
+                        <label>Category</label>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a class="done-btn modal-action modal-close waves-effect waves-green btn-flat ">Done</a>
+        </div>
+
+    </div>
+
+    <!-- edit budget modal -->
+    <div id="edit-budget-modal" class="modal">
+        <div class="modal-content">
+            <h5>Edit Budget</h5>
+            <div class="input-field">
+                <input type="text" id="budget">
+                <label for="budget">New Spending Budget</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a class="done-btn modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+        </div>
+    </div>
+
+    <!-- End Modals -->
+
+    <!-- Script imports -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="lib/jqmeter.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

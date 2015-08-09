@@ -1,0 +1,32 @@
+html, body, .row {
+	height: 100%;
+	margin-bottom: 0px;
+}
+
+.app-area {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+#add-expense-btn {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+#category-chart {
+	width: 100%;
+}
+
+#edit-budget-btn:hover {
+	cursor: pointer;
+	color: teal;
+}
+
+.scroll-panel {
+	height: 100%;
+	overflow: auto;
+	padding-bottom: 64px !important;
+}
+
