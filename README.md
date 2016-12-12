@@ -11,3 +11,5 @@ A simple app that showcases:
 * Hosting with gh-pages: http://clarencenpy.github.io/expense-tracker
 
 Comments/questions on this repo is welcome.
+
+![Screenshot](Screenshot.png?raw=true "Screenshot")
